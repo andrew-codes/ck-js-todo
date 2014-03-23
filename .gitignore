@@ -1,0 +1,6 @@
+# IDE
+.idea
+
+# Packages
+bower_components
+node_modules

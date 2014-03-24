@@ -1,0 +1,20 @@
+{
+    "name": "ck-js-todo",
+    "version": "0.0.0",
+    "homepage": "https://github.com/jamesandrewsmith/ck-js-todo",
+    "authors": [
+        "Andrew Smith <Andrew@WeAreSoftwareCraftsmen.com>"
+    ],
+    "description": "To do web application",
+    "private": true,
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test"
+    ],
+    "dependencies": {
+        "durandal": "~2.0.1",
+        "bootstrap": "~3.1.1"
+    }
+}

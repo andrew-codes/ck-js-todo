@@ -1,0 +1,6 @@
+{
+    "appDir": "app",
+    "baseUrl": "./",
+    "mainConfigFile": "app/config.js",
+    "dir": "app-release"
+}

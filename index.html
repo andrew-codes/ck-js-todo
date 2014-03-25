@@ -9,8 +9,9 @@
 
 <script src="node_modules/requirejs/require.js"></script>
 <script>
-    require(['app/index'], function (app) {
-        
+    require(['app/config'], function () {
+        require(['index'], function () {
+        });
     });
 </script>
 </body>

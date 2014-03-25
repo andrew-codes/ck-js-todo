@@ -25,7 +25,8 @@
     "mocha": "~1.18.2",
     "karma": "~0.12.1",
     "gulp-karma": "0.0.4",
-    "gulp": "~3.5.6"
+    "gulp": "~3.5.6",
+    "karma-sinon-chai": "~0.1.5"
   },
   "dependencies": {
     "requirejs": "~2.1.11",

@@ -3,11 +3,20 @@ define(function (require) {
     'use strict';
 
     describe('index', function () {
-        var sut;
+        var sut,
+            $,
+            ajaxSpy;
         beforeEach(function (done) {
-            sut = require('index');
+            sut = require('app/index');
+            $ = require('jquery');
+            ajaxSpy = sinon.spy($, 'ajax');
             done();
         });
+
+        afterEach(function () {
+            $.ajax.restore();
+        });
+
         describe('when loading our module', function () {
             it('should exist', function () {
                 sut.should.not.be.null;
@@ -15,8 +24,10 @@ define(function (require) {
         });
 
         describe('when starting the application', function () {
-            it('should load a blank list of tasks', function () {
-                sut.tasks().length.should.be.equal(0);
+            it('should load tasks from the server', function () {
+                ajaxSpy.should.have.been.called('api/tasks', {
+                    method: 'GET'
+                });
             });
         });
     });

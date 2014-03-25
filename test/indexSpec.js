@@ -3,9 +3,15 @@ define(function (require) {
     'use strict';
 
     describe('index', function () {
-        var sut;
+        var sut,
+            $,
+            ajaxSpy,
+            sinon;
         beforeEach(function (done) {
             sut = require('index');
+            $ = require('jquery');
+            sinon = require('sinon');
+            ajaxSpy=sinon.spy($, 'ajax');
             done();
         });
         describe('when loading our module', function () {
@@ -15,8 +21,10 @@ define(function (require) {
         });
 
         describe('when starting the application', function () {
-            it('should load a blank list of tasks', function () {
-                sut.tasks().length.should.be.equal(0);
+            it('should load tasks from the server', function () {
+                ajaxSpy.should.have.been.called('api/tasks', {
+                    method: 'GET'
+                });
             });
         });
     });

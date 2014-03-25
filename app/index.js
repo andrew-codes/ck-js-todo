@@ -2,5 +2,10 @@
 define(function (require) {
     'use strict';
 
-    return {};
+    var ko = require('knockout');
+    var app = {
+        tasks: ko.observableArray()
+    };
+
+    return app;
 });

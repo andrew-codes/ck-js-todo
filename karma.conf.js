@@ -6,12 +6,12 @@ module.exports = function (config) {
         frameworks: ['mocha', 'requirejs', 'sinon-chai'],
         files: [
             {pattern: 'app/**/*.js', included: false},
-//            {pattern: 'test/**/*Spec.js', included: false},
             {pattern: 'bower_components/**/*.js', included: false},
             'test-main.js'
         ],
         exclude: [
-            'app/config.js'
+            'app/config.js',
+            'bower_components/**/build/output/knockout.mapping-latest.js'
         ],
         preprocessors: {
 

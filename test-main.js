@@ -20,7 +20,13 @@ require.config({
         'durandal': '../bower_components/durandal/js',
         'jquery': '../bower_components/jquery/jquery',
         'knockout': '../bower_components/knockout.js/knockout',
-        'bootstrap': '../bower_components/bootstrap/dist/js/bootstrap'
+        'bootstrap': '../bower_components/bootstrap/dist/js/bootstrap',
+        'knockout-mapping': '../bower_components/knockout-mapping/knockout.mapping'
+    },
+    shim: {
+        'bootstrap': {
+            deps: ['jquery']
+        }
     },
     // dynamically load all test files
     deps: allTestFiles,

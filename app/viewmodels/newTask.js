@@ -4,16 +4,16 @@ define(function (require) {
 
     var ko = require('knockout'),
         app = require('durandal/app'),
-        task = require('viewmodels/task');
+        mapping = require('knockout-mapping'),
+        save = function () {
+            app.trigger('task:new', mapping.toJS(this));
+        };
 
-    var save = function () {
-        app.trigger('task:new', this);
+    var ViewModel = function () {
+        var self = this;
+        self.title = ko.observable();
+        self.save = save;
     };
 
-    var newTask = {
-        title: ko.observable(),
-        save: save
-    };
-
-    return newTask;
+    return ViewModel;
 });

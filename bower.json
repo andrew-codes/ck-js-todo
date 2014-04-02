@@ -16,6 +16,7 @@
   "dependencies": {
     "durandal": "~2.0.1",
     "bootstrap": "~3.1.1",
-    "requirejs": "~2.1.11"
+    "requirejs": "~2.1.11",
+    "knockout-mapping": "~2.4.1"
   }
 }

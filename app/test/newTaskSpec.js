@@ -5,17 +5,15 @@ define(function (require) {
     describe('newTask', function () {
         var sut,
             app,
-            newTask,
             taskTitle,
             triggerSpy,
-            createSpy;
+            mapping;
         beforeEach(function (done) {
+            var Sut = require('viewmodels/newTask');
             app = require('durandal/app');
-            sut = require('viewmodels/newTask');
+            mapping = require('knockout-mapping');
+            sut = new Sut();
             taskTitle = 'My new task';
-            newTask = {
-                title: taskTitle
-            };
             triggerSpy = sinon.stub(app, 'trigger');
             done();
         });
@@ -24,15 +22,18 @@ define(function (require) {
         });
 
         describe('given a task title', function () {
+            var actual;
             beforeEach(function () {
-                sut.title('My new task');
+                actual = null;
+                sut.title(taskTitle);
             });
             describe('when saving a new task', function () {
                 beforeEach(function () {
                     sut.save();
+                    actual = mapping.toJS(sut);
                 });
                 it('should trigger the new task event with the new task data', function () {
-                    triggerSpy.should.have.been.calledWith('task:new', sut);
+                    triggerSpy.should.have.been.calledWith('task:new', actual);
                 });
             });
         });

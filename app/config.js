@@ -10,14 +10,11 @@ requirejs.config({
         'jquery': '../bower_components/jquery/jquery',
         'knockout': '../bower_components/knockout.js/knockout',
         'bootstrap': '../bower_components/bootstrap/dist/js/bootstrap',
-        'sinon': '../bower_components/sinon/lib/sinon'
+        'knockout-mapping': '../bower_components/knockout-mapping/knockout.mapping'
     },
     shim: {
         'bootstrap': {
             deps: ['jquery']
-        },
-        'sinon': {
-            exports: 'sinon'
         }
     }
 });

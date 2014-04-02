@@ -3,16 +3,13 @@ define(function (require) {
     'use strict';
 
     var ko = require('knockout'),
-        app = require('durandal/app');
-
-
-    var tasks = {
-        allTasks: ko.observableArray()
-    };
-
-    var addNewTask = function (task) {
-        tasks.allTasks.push(task);
-    };
+        app = require('durandal/app'),
+        tasks = {
+            taskCollection: ko.observableArray()
+        },
+        addNewTask = function (task) {
+            tasks.taskCollection.push(task);
+        };
 
     app.on('task:new').then(addNewTask);
 

@@ -5,30 +5,27 @@ define(function (require) {
     describe('tasks', function () {
         var sut,
             app,
-            task,
-            newTask;
+            ko;
         beforeEach(function (done) {
             app = require('durandal/app');
             sut = require('viewmodels/tasks');
-            task = require('viewmodels/task');
-            var ko = require('knockout');
-            newTask = { title: ko.observable('My new task')};
-            sinon.stub(task, 'create').returns(newTask);
+            ko = require('knockout');
             done();
         });
-        afterEach(function () {
-            task.create.restore();
-        });
         describe('given a new task', function () {
-            describe('when the new task event is triggered', function () {
+            var newTask;
+            beforeEach(function () {
+                newTask = { title: ko.observable('My new task')};
+            });
+            describe('when the application-wide new task event is triggered with the new task', function () {
                 var oldLength;
                 beforeEach(function () {
-                    oldLength = sut.allTasks().length;
+                    oldLength = sut.taskCollection().length;
                     app.trigger('task:new', newTask);
                 });
-                it('should add the new task as a read only task viewmodel to the all tasks collection', function () {
-                    sut.allTasks().length.should.equal(oldLength + 1);
-                    sut.allTasks()[oldLength].should.equal(newTask);
+                it('should add the new task to the tasks collection', function () {
+                    sut.taskCollection().length.should.equal(oldLength + 1);
+                    sut.taskCollection()[oldLength].should.equal(newTask);
                 });
             });
         });

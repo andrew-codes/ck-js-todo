@@ -1,2 +1,7 @@
-<input type="text" data-bind="value: title" placeholder="Task Title"/>
-<button data-bind="click: save">Save</button>
+<div class="form-group">
+    <label class="sr-only" for="newInlineTaskTitle">Task Title</label> <input type="text" id="newInlineTaskTitle"
+                                                                              data-bind="value: title"
+                                                                              placeholder="Task Title"
+                                                                              class="form-control"/>
+</div>
+<button class="btn btn-primary" data-bind="click: save">Save</button>

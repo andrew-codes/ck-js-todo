@@ -1,5 +1,5 @@
-<form data-bind="compose: 'viewmodels/newTask'">
+<form data-bind="compose: 'viewmodels/newTask'" class="form-inline" role="form">
 </form>
-<ul data-bind="foreach: allTasks">
+<ul data-bind="foreach: taskCollection">
     <li data-bind="text: title"></li>
 </ul>

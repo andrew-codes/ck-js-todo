@@ -1,6 +1,9 @@
-<header>
-    <nav class="navbar navbar-default">
+<header role="banner">
+    <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
+            <div class="navbar-header">
+                <span class="navbar-brand">CK-ToDo</span>
+            </div>
             <ul class="nav navbar-nav" data-bind="foreach: router.navigationModel">
                 <li data-bind="css: { active: isActive }">
                     <a data-bind="attr: { href: hash }, html: title"></a>
@@ -12,6 +15,6 @@
         </div>
     </nav>
 </header>
-<main class="container-fluid page-host" data-bind="router: { transition:'entrance' }"></main>
-<footer>
+<main role="main" class="container-fluid page-host" data-bind="router: { transition:'entrance' }"></main>
+<footer role="contentinfo">
 </footer>

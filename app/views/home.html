@@ -1,10 +1,7 @@
+<h1>Code Kata - To Do List</h1>
+
 <section>
-    <h2>Hello! What is your name?</h2>
-    <form class="form-inline">
-        <fieldset>
-            <label>Name</label>
-            <input type="text" data-bind="value: name, valueUpdate: 'afterkeydown'"/>
-            <button type="submit" class="btn" data-bind="click: sayHello, enable: name">Click Me</button>
-        </fieldset>
-    </form>
+    <h1>All My Tasks</h1>
+
+    <div data-bind="compose: 'viewmodels/tasks'"></div>
 </section>

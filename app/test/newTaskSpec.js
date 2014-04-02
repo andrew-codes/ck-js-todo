@@ -7,25 +7,20 @@ define(function (require) {
             app,
             newTask,
             taskTitle,
-            task,
             triggerSpy,
             createSpy;
         beforeEach(function (done) {
             app = require('durandal/app');
-            var ko = require('knockout');
-            sut = require('app/viewmodels/newTask');
-            task = require('app/viewmodels/task');
+            sut = require('viewmodels/newTask');
             taskTitle = 'My new task';
             newTask = {
-                title: ko.observable(taskTitle)
+                title: taskTitle
             };
-            createSpy = sinon.stub(task, 'create').returns(newTask);
             triggerSpy = sinon.stub(app, 'trigger');
             done();
         });
         afterEach(function () {
             triggerSpy.restore();
-            createSpy.restore();
         });
 
         describe('given a task title', function () {
@@ -36,11 +31,8 @@ define(function (require) {
                 beforeEach(function () {
                     sut.save();
                 });
-                it('should create the new task from the provided data', function () {
-                    createSpy.should.have.been.calledWith(sut);
-                });
-                it('should trigger the new task event with the new task', function () {
-                    triggerSpy.should.have.been.calledWith('task:new', newTask);
+                it('should trigger the new task event with the new task data', function () {
+                    triggerSpy.should.have.been.calledWith('task:new', sut);
                 });
             });
         });

@@ -4,11 +4,10 @@ define(function (require) {
 
     var ko = require('knockout'),
         app = require('durandal/app'),
-        task = require('app/viewmodels/task');
+        task = require('viewmodels/task');
 
     var save = function () {
-        var newTask = task.create(this);
-        app.trigger('task:new', newTask);
+        app.trigger('task:new', this);
     };
 
     var newTask = {

@@ -9,9 +9,10 @@ define(function (require) {
             newTask;
         beforeEach(function (done) {
             app = require('durandal/app');
-            sut = require('app/viewmodels/tasks');
-            task = require('app/viewmodels/task');
-            newTask = { title: 'My new task'};
+            sut = require('viewmodels/tasks');
+            task = require('viewmodels/task');
+            var ko = require('knockout');
+            newTask = { title: ko.observable('My new task')};
             sinon.stub(task, 'create').returns(newTask);
             done();
         });
@@ -23,7 +24,7 @@ define(function (require) {
                 var oldLength;
                 beforeEach(function () {
                     oldLength = sut.allTasks().length;
-                    app.trigger('task:new', task.create());
+                    app.trigger('task:new', newTask);
                 });
                 it('should add the new task as a read only task viewmodel to the all tasks collection', function () {
                     sut.allTasks().length.should.equal(oldLength + 1);
